@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-function ToDo (/*{match}*/){
-    //console.dir(match);
+function ToDo ({match}){
+    console.dir(match);
     return(
-        <div>ToDo: {/*match.params.id*/} </div>
+        <div>ToDo: {match.params.id} </div>
     )
 }
 
