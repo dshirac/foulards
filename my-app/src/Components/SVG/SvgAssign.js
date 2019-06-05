@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-function SvgToDo (){
+function SvgAssign (){
     return(
         
 		
@@ -13,4 +12,4 @@ function SvgToDo (){
     )
 }
 
-export default SvgToDo;
+export default SvgAssign;

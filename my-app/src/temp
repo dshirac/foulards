@@ -1,91 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-// import Header from './Header/Header';
-import './App.css';
+<Router>
 
-class App extends React.Component{
-    constructor(){
-    super();
-      this.state={counter:0 }
-  } 
+      <div className="App">
+
+        <div className="grid">
+
+          <ul className="top-menu menu">
+            <li className="menu-item logo">
+              <Link to={`/`}>myFamily</Link>
+             { <ul className="sub-menu">
+                <li className="menu-item">
+                  <Link to={`Components/MyFamily/Login`}>Login</Link></li>
+                <li className="menu-item">
+                  <Link to={`Components/MyFamily/Settings`}>Settings</Link></li>
+              </ul>}
+           </li>
+          </ul>
+
+          <div className="header">
+            <div className="header-child ">
+              <div className="my-family-photo"></div>
+            </div>
+          </div>
+
+          <div className="content">
+            <h1>Hello</h1>
+            <Route exact={true} path='/' component={MyFamily}/> 
+            <Route path='/Components/MyFamily/Login' component={MyFamilyLogin}/> 
+            <Route path='/Components/MyFamily/Settings' component={MyFamilySettings}/> 
+            <Route path='/Components/Assignements' component={Assignements}/>
+            <Route path='/Components/SpecialDates' component={SpecialDates}/>
+            <Route path='/Components/Meals' component={Meals}/>
+            <Route path='/Components/ToDo/:id' component={ToDo}/>
+          </div> {/* END: content */}
+          <ul className="bottom-menu menu">
+          <li className="menu-item svg-wrapper">
+           <SvgMeals />
+
+              <Link to={`/Components/Assignements`}>Assignments</Link>
+            </li>
+            <li className="menu-item svg-wrapper">
+              <SvgMeals />
+              <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
+            </li>
+            <li className="menu-item svg-wrapper">
+              <Link to={`/Components/Meals`}>Meals</Link>
+                <ul className="sub-menu">
+                  <li className="menu-item">
+                    Dinner
+                  </li>
+                </ul>    
+            </li>
+            <li className="menu-item svg-wrapper">
+              <Link to={'/Components/ToDo/{?}'}>ToDo</Link>
+            </li>
+          </ul>
 
 
-  
- render(){
-    return (
-
-
-
-
-      <div className="App" >
-        
+          <div className="footer">{/* ON MOBILE:
+            <p>FOOTER Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos
+              cumque iste necessitatibus quasi, sapiente eos quod eligendi inventore eius nisi
+              culpa error suscipit vel alias nostrum provident assumenda. Inventore, eum.</p >
+           */}</div>
+        </div> {/* END: grid */}
+      </div> {/* END:app */}  
        
-        <div class="wrapper">
-  <div class="grid">
-   
-
-  <ul class="top-menu menu">
-    <div class="menu-item logo"><a href="#">myFamily</a></div>
-      <div class="menu-item"><a href="#">Login</a><div class="sub-menu-item"><a href="#">Login [change user]</a></div>
-      <div class="sub-menu-item"><a href="#">Settings</a></div>
-      </div>
-    </ul>
-  
+    </Router>
     
-    
-    <div class="header">
-      <div class="header-child ">
-        <div class="my-family-photo"></div></div>
-    </div>
-
-    <ul class="bottom-menu menu">
-    <div class="menu-item"><a href="#">Assignments</a></div>
-    <div class="menu-item"><a href="#">Spacial Dates</a></div>
-    <div class="menu-item"><a href="#">Meals</a>
-      <div class="sub-menu-item"><a href="#">What's for Dinner?!</a></div>
-    </div>
-    <div class="menu-item"><a href="#">ToDo</a>
-      <div class="sub-menu-item"><a href="#">General list</a></div>
-      <div class="sub-menu-item"><a href="#">Individual list</a></div>
-    </div>
-    </ul>
-
-    <div class="content">
-    <p>CONTENT Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, libero obcaecati dolore officia suscipit ex, deserunt enim sit eligendi ipsam, quia corporis cumque tempora aliquid debitis perspiciatis, facilis numquam quas!</p>
-    <p>CONTENT Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, libero obcaecati dolore officia suscipit ex, deserunt enim sit eligendi ipsam, quia corporis cumque tempora aliquid debitis perspiciatis, facilis numquam quas!</p>
-    <p>CONTENT Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, libero obcaecati dolore officia suscipit ex, deserunt enim sit eligendi ipsam, quia corporis cumque tempora aliquid debitis perspiciatis, facilis numquam quas!</p>
-    </div>
-   
-    <div class="footer">
-      <p>FOOTER Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos cumque iste necessitatibus quasi, sapiente eos quod eligendi inventore eius nisi culpa error suscipit vel alias nostrum provident assumenda. Inventore, eum.</p>
-    </div>
-  </div> {/* grid */}
-</div> {/* wrapper */}
-
-
-
-       {/*  {this.state.counter}
-       <button onClick={()=>{this.setState({counter: this.state.counter + 1}) }}>+</button>  */ }
-       
-        </div>
-  );}
-
-
-}
-
-/* 
-class Results extends React.Component{
-  constructor(){
-      super();
-
-  }
-
-}
-
-*/
-
-export default App;
-
-
-
-      
