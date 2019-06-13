@@ -1,68 +1,132 @@
-<Router>
 
-      <div className="App">
+import React, { Component, useState, useEffect, useContext } from 'react';
 
-        <div className="grid">
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import './App.css';
 
-          <ul className="top-menu menu">
-            <li className="menu-item logo">
-              <Link to={`/`}>myFamily</Link>
-             { <ul className="sub-menu">
-                <li className="menu-item">
-                  <Link to={`Components/MyFamily/Login`}>Login</Link></li>
-                <li className="menu-item">
-                  <Link to={`Components/MyFamily/Settings`}>Settings</Link></li>
-              </ul>}
-           </li>
-          </ul>
+/*import Header from './Header/Header.js';
+ import Header from './Footer/Footer.js';
+import Header from './Cont/Cont.js'; */
 
-          <div className="header">
-            <div className="header-child ">
-              <div className="my-family-photo"></div>
-            </div>
-          </div>
+import MyFamily from './Components/MyFamily/MyFamily';
+import MyFamilyLogin from './Components/MyFamily/Login.js';
+import MyFamilySettings from './Components/MyFamily/Settings.js';
+import Assignements from './Components/Assignements.js';
+import SpecialDates from './Components/SpecialDates.js';
+import Meals from './Components/Meals/Meals.js';
+import ToDo from './Components/ToDo.js'; 
 
-          <div className="content">
-            <h1>Hello</h1>
-            <Route exact={true} path='/' component={MyFamily}/> 
-            <Route path='/Components/MyFamily/Login' component={MyFamilyLogin}/> 
-            <Route path='/Components/MyFamily/Settings' component={MyFamilySettings}/> 
-            <Route path='/Components/Assignements' component={Assignements}/>
-            <Route path='/Components/SpecialDates' component={SpecialDates}/>
-            <Route path='/Components/Meals' component={Meals}/>
-            <Route path='/Components/ToDo/:id' component={ToDo}/>
-          </div> {/* END: content */}
-          <ul className="bottom-menu menu">
-          <li className="menu-item svg-wrapper">
-           <SvgMeals />
-
-              <Link to={`/Components/Assignements`}>Assignments</Link>
-            </li>
-            <li className="menu-item svg-wrapper">
-              <SvgMeals />
-              <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
-            </li>
-            <li className="menu-item svg-wrapper">
-              <Link to={`/Components/Meals`}>Meals</Link>
-                <ul className="sub-menu">
-                  <li className="menu-item">
-                    Dinner
-                  </li>
-                </ul>    
-            </li>
-            <li className="menu-item svg-wrapper">
-              <Link to={'/Components/ToDo/{?}'}>ToDo</Link>
-            </li>
-          </ul>
+import SvgProfile from './Components/SVG/SvgProfile.js'
+import SvgAssign from './Components/SVG/SvgAssign.js';
+import SvgDates from './Components/SVG/SvgDates.js';
+import SvgMeals from './Components/SVG/SvgMeals.js';
+import SvgToDo from './Components/SVG/SvgToDo.js'; 
 
 
-          <div className="footer">{/* ON MOBILE:
-            <p>FOOTER Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos
-              cumque iste necessitatibus quasi, sapiente eos quod eligendi inventore eius nisi
-              culpa error suscipit vel alias nostrum provident assumenda. Inventore, eum.</p >
-           */}</div>
-        </div> {/* END: grid */}
-      </div> {/* END:app */}  
-       
-    </Router>
+
+const ThemeContext = React.createContext();
+/* let linkUrl; */
+
+function App() {
+  
+  return (
+    <ThemeContext.Provider  value="Shira" >
+
+    <Router>
     
+    <div className="App">
+
+      <div className="grid">
+
+        
+<Header />
+        <div className="header">
+          <div className="header-child ">
+            <div className="my-family-photo"></div>
+          </div>
+        </div>
+
+        <div className="content">
+          <Route exact={true} path='/' component={MyFamily}/> 
+          <Route path='/Components/MyFamily/Login' component={MyFamilyLogin}/> 
+          <Route path='/Components/MyFamily/Settings' component={MyFamilySettings}/> 
+          <Route path='/Components/Assignements' component={Assignements}/>
+          <Route path='/Components/SpecialDates' component={SpecialDates}/>
+          <Route path='/Components/Meals' component={Meals}/>
+          <Route path='/Components/ToDo/:id' component={ToDo}/>
+        </div> {/* END: content */}
+        <div className="menu"><ul className="bottom-menu ">
+          <li className="menu-item svg-wrapper">
+            <SvgAssign />
+            <Link to={`/Components/Assignements`}>Assignments</Link>
+          </li>
+          <li className="menu-item svg-wrapper">
+            <SvgDates />
+            <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
+          </li>
+          <li className="menu-item svg-wrapper">
+            <SvgMeals />
+            <Link to={`/Components/Meals`}>Meals</Link>
+              <ul className="sub-menu">
+                <li className="menu-item">
+                  Dinner
+                </li>
+              </ul>    
+          </li>
+          <li className="menu-item svg-wrapper" >
+{/*             linkUrl = `/Components/ToDo/ ${ this.context.theme }`;
+ */}            <SvgToDo />
+            <Link to={`/Components/ToDo/ ${ThemeContext.value}`}>ToDo{/* <Toolbar /> */}</Link>
+            
+          </li>
+        </ul>
+        </div>
+
+        <div className="footer">{/* ON MOBILE:
+          <p>FOOTER Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos
+            cumque iste necessitatibus quasi, sapiente eos quod eligendi inventore eius nisi
+            culpa error suscipit vel alias nostrum provident assumenda. Inventore, eum.</p >
+        */}</div>
+      </div> {/* END: grid */}
+    </div> {/* END:app */}  
+    
+    </Router>
+
+</ThemeContext.Provider>
+); //return
+
+
+} //app 
+
+// A component in the middle doesn't have to
+// pass the theme down explicitly anymore.
+function Toolbar(props) {
+  return (
+        <ThemedButton theme={props.theme} />
+  );
+}
+
+function ThemedButton(props) {
+  // Assign a contextType to read the current theme context.
+  // React will find the closest theme Provider above and use its value.
+  // In this example, the current theme is "dark".
+  // let contextType = ThemeContext;
+  const theme = useContext(ThemeContext);
+
+  return <Button theme={props.theme} />;
+}
+
+class Button extends React.Component {
+  // Assign a contextType to read the current theme context.
+  // React will find the closest theme Provider above and use its value.
+  // In this example, the current theme is "dark".
+
+  render() {
+      //return <span className={` ${this.props.theme}`}>{this.props.theme}</span>;
+     return  <ThemeContext.Consumer>
+                {value => <span>{value}</span>}
+              </ThemeContext.Consumer>
+  }
+}
+
+export default App;

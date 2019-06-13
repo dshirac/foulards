@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Kodchasan|Maiden+Orange');
 
+html, body , #root, .App, .grid{
+  height: 100%;
+}
 .wrapper {
   font-family: 'PT Sans';
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 /*
 Open Sans Condensed
@@ -14,39 +18,52 @@ Kodchasan
 */
 .grid {
   display: grid;
-  max-width: 99vw;
-  grid-template-columns: 2fr 2fr;
+  max-width: 600px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0;
-  padding: 0 30px;
+  padding: 0 20px;
   background-color: #f3f3f3;
 }
-
+.grid > div{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: fit-content;
+}
 .menu{
   grid-column-start: 1;
   grid-column-end: 4;
+}
+.menu UL, .header .top-menu{
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   padding:0;
   margin:0;
 }
+.top-menu .menu-item{
+  text-align:left;
+}
 .top-menu .menu-item a{
   margin-bottom: 0;
     padding-bottom: 0;
-    font-size: calc(14px + 0.5vw);
+    font-size: calc(10px + 0.5vw);
     color: #0073ff;
     justify-content: flex-end;
     vertical-align: baseline;
     display: flex;
 }
-.bottom-menu{
-}
+
 .menu-item{
+flex:1 1;
+height: initial;
 color:#4b3c01;
 font-size: calc(14px + 0.5vw);
-flex:1;
 list-style:none;
 text-align: center;
 font-weight: bold;
+margin:0;
+padding:5px 0;
+text-align:center;
 }
 .bottom-menu  .menu-item{
   background: #ffe16be7;
@@ -60,9 +77,9 @@ font-weight: bold;
     .menu-item.logo a{
       font-size: calc(20px + 0.5vw);
       font-family: 'Baloo Bhai', cursive;
-      color:#241d02;
+      color:#fc5a3a;
       font-weight:100;
-      justify-content: flex-start;
+      display: inline;
     }
 .bottom-menu .menu-item{
   
@@ -102,10 +119,9 @@ font-weight: bold;
 }
 
 .header{
+  height: fit-content;
   grid-column-start: 1;
   grid-column-end: 4;
-  display: flex;
-  justify-content: space-between;
   color:#ffffff;
   font-family: 'Baloo Bhai', cursive;
   font-size: calc(14px + 0.5vw);
@@ -123,6 +139,8 @@ font-weight: bold;
   color:#9e9e9d
 }
 .content {
+  height:fit-content;
+  min-height: 100%;
   padding: 20px;
   margin:20px 0;
   grid-column-start: 1;
@@ -132,7 +150,7 @@ font-weight: bold;
 }
 .footer {
     position: relative;
-    padding: 20px;
+    padding: 10px;
     grid-column-start: 1;
     grid-column-end: 4;
     background: #fc5a3a;
