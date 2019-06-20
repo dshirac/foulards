@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import './App.css';
 
 import Header from './Header/Header.js';
+import Cont from './Cont/Cont.js'; 
 import Footer from './Footer/Footer.js';
-import Cont from './Cont/Cont.js'; /**/
 
 /* 
 import Assignements from './Components/Assignements.js';

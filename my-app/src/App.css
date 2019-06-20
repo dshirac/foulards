@@ -4,7 +4,7 @@
 html, body , #root, .App, .grid{
   height: 100%;
 }
-.wrapper {
+.app {
   font-family: 'PT Sans';
   display: flex;
   justify-content: center;
@@ -19,27 +19,34 @@ Kodchasan
 .grid {
   display: grid;
   max-width: 600px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 0;
+  grid-template-columns: auto;
+  grid-template-rows: 28% 43% 15%;
+    grid-gap: 0;
   padding: 0 20px;
   background-color: #f3f3f3;
 }
-.grid > div{
-  grid-column-start: 1;
-  grid-column-end: 4;
-  height: fit-content;
-}
-.menu{
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
-.menu UL, .header .top-menu{
+    .App:after/*copyrights*/ 
+    {
+      content: '@ShiraC';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      background: #fff;
+      border: 1px dashed #fc5a3a;
+      border-width: 1px 1px 0 1px;
+      color: #0072ff;
+      padding: 5px;
+      font-size: calc(10px + 0.5vw);
+      transform: rotate(90deg);
+    }
+.header .top-menu,  .bottom-menu{
   height: fit-content;
   display: flex;
   justify-content: space-between;
   padding:0;
   margin:0;
 }
+
 .top-menu .menu-item{
   text-align:left;
 }
@@ -65,9 +72,7 @@ margin:0;
 padding:5px 0;
 text-align:center;
 }
-.bottom-menu  .menu-item{
-  background: #ffe16be7;
-}
+
     .menu-item.logo{
       justify-content:left;
       height:100%;
@@ -81,12 +86,7 @@ text-align:center;
       font-weight:100;
       display: inline;
     }
-.bottom-menu .menu-item{
-  
-  border-left: 1px dashed #f3f3f3;
-  border-right: 1px dashed #dbd8ca;
-  
-}
+
 .menu-item > a{
   display:flex;
 }
@@ -108,6 +108,11 @@ text-align:center;
 }
 .menu-item.svg-wrapper  a{ padding-top: 0;}
  
+  .bottom-menu .menu-item{
+  background: #ffe16be7;
+  border-left: 1px dashed #f3f3f3;
+  border-right: 1px dashed #dbd8ca;
+}
 .sub-menu .menu-item {
   flex: 1  !important;
   background: rgba(250, 250, 250, 0.317) !important;
@@ -122,38 +127,42 @@ text-align:center;
   height: fit-content;
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2; 
   color:#ffffff;
   font-family: 'Baloo Bhai', cursive;
   font-size: calc(14px + 0.5vw);
 }
- .header-child{
-    flex:1;
-    height:20vh;
- }
  
 .my-family-photo{
-  height:100%;
+  height:20vh;
+  width:100%;
   background:url('https://img.mako.co.il/2018/08/05/shutterlhappyfamily11123_i.jpg');
   background-size: cover;
   background-position: center;
   color:#9e9e9d
 }
-.content {
-  height:fit-content;
-  min-height: 100%;
-  padding: 20px;
-  margin:20px 0;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  font-size: calc(14px + 0.5vw);
-  background: #ffffff;
-}
-.footer {
-    position: relative;
-    padding: 10px;
+  .wrapper{
+    margin:0;
     grid-column-start: 1;
     grid-column-end: 4;
-    background: #fc5a3a;
+    grid-row-start: 2;
+    grid-row-end: 3; 
+    background: #ffffff;
+  }
+  .content{
+    padding: 20px;
+    font-size: calc(14px + 0.5vw);
+  }
+.footer {
+  height:fit-content;
+    position: relative;
+    padding:0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4; 
+    border-bottom:2px dotted #fc5a3a;
     color: #333333;
 }
 
@@ -161,20 +170,7 @@ text-align:center;
     padding: 0; margin: 0;
   }
 
-.footer:after/*copyrights*/ 
-{
-  content: '@ShiraC';
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #fff;
-  border: 1px dashed #fc5a3a;
-  border-width: 0 1px 1px 0;
-  color: #0072ff;
-  padding: 5px;
-  font-size: calc(10px + 0.5vw);
-  font-weight: bold;
-}
+
 /* -----
 SVG Icons - svgicons.sparkk.fr
 ----- */

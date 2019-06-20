@@ -17,7 +17,6 @@ function Header() {
     return (
         <div className="header">
             <ThemeContext.Provider value="Shira" >
-                <Router>
                     <Route exact={true} path='/' component={MyFamily} />
                     <Route path='/Components/MyFamily/Login' component={MyFamilyLogin} />
                     <Route path='/Components/MyFamily/Settings' component={MyFamilySettings} />
@@ -36,11 +35,7 @@ function Header() {
                                 <Link to={`Components/MyFamily/Settings`}>Settings</Link>
                             </li>
                         </ul>
-
-                        <div className="header-child ">
-                            <div className="my-family-photo"></div>
-                        </div>
-                </Router>
+                        <div className="my-family-photo"></div>
 
 
 

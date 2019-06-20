@@ -1,57 +1,45 @@
 
 import React, { Component, useState, useEffect, useContext } from 'react';
-import './Footer.css';
-
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import Assignements from '../Components/Assignements.js';
-import SpecialDates from '../Components/SpecialDates.js';
-import Meals from '../Components/Meals/Meals.js';
-import ToDo from '../Components/ToDo.js';
-
-import SvgProfile from '../Components/SVG/SvgProfile.js'
 import SvgAssign from '../Components/SVG/SvgAssign.js';
 import SvgDates from '../Components/SVG/SvgDates.js';
 import SvgMeals from '../Components/SVG/SvgMeals.js';
 import SvgToDo from '../Components/SVG/SvgToDo.js';
 
+import './Footer.css';
+
 const ThemeContext = React.createContext();
 
 function Footer() {
     return (
-        <div className="menu">
-            <Router>
-                <Route path='/Components/Assignements' component={Assignements} />
-                <Route path='/Components/SpecialDates' component={SpecialDates} />
-                <Route path='/Components/Meals' component={Meals} />
-                <Route path='/Components/ToDo/:id' component={ToDo} />
+        <div className="footer">
+               
+             <ul className="bottom-menu ">
+                    <li className="menu-item svg-wrapper">
+                        <SvgAssign />
+                        <Link to={`/Components/Assignements`}>Assignments</Link>
+                    </li>
+                    <li className="menu-item svg-wrapper">
+                        <SvgDates />
+                        <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
+                    </li>
+                    <li className="menu-item svg-wrapper">
+                        <SvgMeals />
+                        <Link to={`/Components/Meals`}>Meals</Link>
+                        <ul className="sub-menu">
+                            <li className="menu-item">
+                                Dinner
+                    </li>
+                        </ul>
+                    </li>
+                    <li className="menu-item svg-wrapper" >
+                        <SvgToDo />
+                        <Link to={`/Components/ToDo/ ${ThemeContext.value}`}>ToDo{<Toolbar />}</Link>
 
-                    <ul className="bottom-menu ">
-                        <li className="menu-item svg-wrapper">
-                            <SvgAssign />
-                            <Link to={`/Components/Assignements`}>Assignments</Link>
-                        </li>
-                        <li className="menu-item svg-wrapper">
-                            <SvgDates />
-                            <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
-                        </li>
-                        <li className="menu-item svg-wrapper">
-                            <SvgMeals />
-                            <Link to={`/Components/Meals`}>Meals</Link>
-                            <ul className="sub-menu">
-                                <li className="menu-item">
-                                    Dinner
-                </li>
-                            </ul>
-                        </li>
-                        <li className="menu-item svg-wrapper" >
-                            <SvgToDo />
-                            <Link to={`/Components/ToDo/ ${ThemeContext.value}`}>ToDo{<Toolbar />}</Link>
+                    </li>
+                </ul>
 
-                        </li>
-                    </ul>
-                <div className="footer"></div>
-            </Router>
 
         </div>
     ); //return
