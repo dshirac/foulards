@@ -17,51 +17,25 @@ function Header() {
     return (
         <div className="header">
             <ThemeContext.Provider value="Shira" >
-                    <Route exact={true} path='/' component={MyFamily} />
-                    <Route path='/Components/MyFamily/Login' component={MyFamilyLogin} />
-                    <Route path='/Components/MyFamily/Settings' component={MyFamilySettings} />
-
-                        <ul className="top-menu ">
-                            <li className="menu-item">
-                                <SvgProfile />
-                            </li>
-                            <li className="menu-item logo">
-                                <Link to={`/`}>myFamily</Link><span>Hello <Toolbar /></span>
-                            </li>
-                            <li className="menu-item">
-                                <Link to={`Components/MyFamily/Login`}>Login</Link>
-                            </li>
-                            <li className="menu-item">
-                                <Link to={`Components/MyFamily/Settings`}>Settings</Link>
-                            </li>
-                        </ul>
-                        <div className="my-family-photo"></div>
-
-
-
-                {/* <nav>
-	<ul>
-        <li><a href="#">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li>
-			<a href="#">Portfolio</a>
-
-			<ul>
-				<li>
-					<a href="#">Projects</a>
-					
-					<ul>
-						<li><a href="#">Personal</a></li>
-						<li><a href="#">Sub-menu too long for one line</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Employment</a></li>
-			</ul>
-		</li>
-		<li><a href="#">Contact</a></li>
-	</ul>
-</nav> */}
-
+                <Route exact={true} path='/' component={MyFamily} />
+                <Route path='/Components/MyFamily/Login' component={MyFamilyLogin} />
+                <Route path='/Components/MyFamily/Settings' component={MyFamilySettings} />
+                <nav>
+                    <ul className="top-menu">
+                        
+                        <li className="menu-item logo">
+                            <Link to={`/`}>myFamily</Link>
+                        </li>
+                        <li className="menu-item">
+                            <a href="#" className="user"><SvgProfile /><Toolbar /></a>
+                            <ul>
+                                <li className="menu-item"><Link to={`Components/MyFamily/Login`}>Login</Link></li>
+                                <li className="menu-item"><Link to={`Components/MyFamily/Settings`}>Settings</Link></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div className="my-family-photo"></div>
             </ThemeContext.Provider>
         </div>
     ); //return

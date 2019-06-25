@@ -16,13 +16,13 @@ const ThemeContext = React.createContext();
 function Cont() {
     return (
         <div className="wrapper">
-                <div className="content">
-                    <Route path='/Components/Assignements' component={Assignements} />
-                    <Route path='/Components/SpecialDates' component={SpecialDates} />
-                    <Route path='/Components/Meals' component={Meals} />
-                    <Route path='/Components/ToDo/:id' component={ToDo} />
-                </div>
-                
+            <div className="content">
+                <Route path='/Components/Assignements' component={Assignements} />
+                <Route path='/Components/SpecialDates' component={SpecialDates} />
+                <Route path='/Components/Meals' component={Meals} />
+                <Route path='/Components/ToDo/:id' component={ToDo} />
+            </div>
+
 
 
         </div>

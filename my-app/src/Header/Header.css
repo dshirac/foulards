@@ -1,16 +1,14 @@
-/* Refer to the CSS-Tricks article on Flexbox to customize this to your needs. */
+ /*MENU*/
+    /* Refer to the CSS-Tricks article on Flexbox to customize this to your needs. */
 /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 
-body {
-	margin : 0;
-}
 
 nav {
 	font-family : sans-serif;
 }
 
 nav ul {
-	background  : #c0392b;
+	
 	display     : flex;
 	flex-flow   : row nowrap;
 	hyphens     : auto;
@@ -25,14 +23,12 @@ nav ul a {
 	color           : #F5F5F5;
 	display         : block;
 	padding         : 1em;
-	text-decoration : none;
-	transition      : background 0.2s ease-out;
-	transition      : color 0.2s ease-out;
+  text-decoration : none;
+	transition      : color 3s ease-out;
 }
 
 nav ul a:hover {
-	background : #992E22;
-	color      : #FFFFFF;
+
 }
 
 nav ul li {
@@ -41,36 +37,41 @@ nav ul li {
 	text-align : center;
 }
 
-nav ul li:not(:first-child) {
-	border-left : 1px solid rgba(0, 0, 0, 0.1);
-}
-
-nav ul li:not(:last-child) {
-	border-right : 1px solid rgba(255, 255, 255, 0.3);
-}
-
-
 /* SUB-MENU */
+
 nav ul ul {
 	display     : block;
 	left        : 0;
 	opacity     : 0;
 	position    : absolute;
 	top         : 100%;
-	transition  : opacity 0.25s ease 0.1s;
+	transition  : opacity 2s ease 0.1s;
 	width       : 100%;
 }
 
 nav ul li:hover > ul {
 	opacity : 1;
+	
+}
+nav ul li:hover{
+	
 }
 
-nav ul ul li {
+nav ul.top-menu ul li {
+	
 	overflow   : hidden;
 	padding    : 0;
-	transition : height 0.25s ease 0.1s;
+	transition : height 3s ease 0.1s;
 }
-
+nav ul.top-menu ul li.menu-item{padding:0;}
+ nav ul.top-menu ul a{	
+		background: #ffffffd9;
+    	padding-top: 0;
+		  margin-top:3px;
+		  font-size: calc(12px + 0.5vw);
+		  vertical-align: baseline;
+		  text-align:right;
+}
 nav ul ul li > ul {
 	left : 100%;
 	top  : 0;
@@ -95,6 +96,113 @@ nav ul li:hover > ul li {
 
 	nav ul li:not(:first-child),
 	nav ul li:not(:last-child) {
-		border : none;
 	}
 }
+	/*END: MENU*/
+	.header .top-menu,  .bottom-menu{
+		height: fit-content;
+		display: flex;
+		justify-content: space-between;
+		padding:0;
+		margin:0;
+	  }
+	  
+	  .top-menu .menu-item{
+		text-align:right;
+		vertical-align: baseline;
+	    padding-top: 20px;
+	  }
+	  .top-menu .menu-item a{
+		  margin-bottom: 0;
+		  padding-bottom: 0;
+		  color: #0073ff;
+ 		  font-weight: bold;
+		  justify-content: flex-end;
+		  vertical-align: baseline;
+		  display: flex;
+	  }
+	  .top-menu .menu-item a.user{
+		background: #fff;
+		border-right:6px solid #fee379;
+		padding: 5px 20px;
+		border-radius: 50px;
+	  }
+	  .top-menu .menu-item .svg-icon{
+		width: calc(14px + 0.5vw);
+		height: calc(14px + 0.5vw);
+		stroke: #0073ff;
+		padding: 0;
+		  padding-top: 0px;
+		  padding-right:10px;
+		  margin: 0;
+	}
+	  .menu-item{
+	  flex:1 1;
+	  height: initial;
+	  color:#4b3c01;
+	  font-size: calc(14px + 0.5vw);
+	  list-style:none;
+	  text-align: center;
+	  margin:0;
+	  padding:5px 0;
+	  text-align:center;
+	  }
+	  
+		  .menu-item.logo{
+			justify-content:left;
+			text-align: left;
+			height:100%;
+			flex:auto;
+			/**/flex-grow: 1;
+		  }
+		  .menu-item.logo a{
+			font-size: calc(22px + 0.5vw);
+			font-family: 'Baloo Bhai', cursive;
+			color:#fc5a3a;
+			font-weight:100;
+			display: inline;
+		  }
+	  
+	  .menu-item > a{
+		display:inline;
+	  }
+	  
+	
+	  .menu-item  a{
+		padding: 5px;
+		font-size: calc(12px + 0.5vw);
+		color:#4b3c01;
+		text-decoration: none;
+		justify-content: center;
+	  }
+	  .menu-item.svg-wrapper  a{ padding-top: 0;}
+	  .sub-menu .menu-item {
+		flex: 1  !important;
+		background: rgba(250, 250, 250, 0.317) !important;
+		padding: 10px !important;
+		margin:1px 0 0 ;
+		font-size: calc(14px + 0.5vw);
+		font-weight: normal !important;
+		display:none;
+	  }
+	  
+	  .header{
+		height: fit-content;
+		grid-column-start: 1;
+		grid-column-end: 4;
+		grid-row-start: 1;
+		grid-row-end: 2; 
+		color:#ffffff;
+		font-family: 'Baloo Bhai', cursive;
+		font-size: calc(14px + 0.5vw);
+	  }
+	   
+	  .my-family-photo{
+		height:20vh;
+		width:100%;
+		border: 1px dashed #f3f3f3;
+		background:url('https://img.mako.co.il/2018/08/05/shutterlhappyfamily11123_i.jpg');
+		background-size: cover;
+		background-position: center;
+		color:#9e9e9d
+	  }   

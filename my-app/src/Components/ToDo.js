@@ -1,9 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import ThemeContext from '../state';
 
-function ToDo ({match}){
-    console.dir(match);
-    return(
-        <div>ToDo: {match.params.id} </div>
+
+function ToDo() {
+    return (
+        <div>
+            <ThemeContext.Consumer>
+
+                {value=><div>ToDo: {value}</div>}
+
+            </ThemeContext.Consumer>
+        </div>
     )
 }
 

@@ -14,32 +14,26 @@ const ThemeContext = React.createContext();
 function Footer() {
     return (
         <div className="footer">
-               
+      
              <ul className="bottom-menu ">
-                    <li className="menu-item svg-wrapper">
-                        <SvgAssign />
-                        <Link to={`/Components/Assignements`}>Assignments</Link>
+                    <li className="menu-item svg-wrapper bounce-in-top">
+                        <Link to={`/Components/Assignements`}><SvgAssign />Assignments</Link>
                     </li>
-                    <li className="menu-item svg-wrapper">
-                        <SvgDates />
-                        <Link to={`/Components/SpecialDates`}>Spacial Dates</Link>
+                    <li className="menu-item svg-wrapper bounce-in-top">                        
+                        <Link to={`/Components/SpecialDates`}><SvgDates />Spacial Dates</Link>
                     </li>
-                    <li className="menu-item svg-wrapper">
-                        <SvgMeals />
-                        <Link to={`/Components/Meals`}>Meals</Link>
+                    <li className="menu-item svg-wrapper bounce-in-top">                       
+                        <Link to={`/Components/Meals`}><SvgMeals />Meals</Link>
                         <ul className="sub-menu">
                             <li className="menu-item">
                                 Dinner
                     </li>
                         </ul>
                     </li>
-                    <li className="menu-item svg-wrapper" >
-                        <SvgToDo />
-                        <Link to={`/Components/ToDo/ ${ThemeContext.value}`}>ToDo{<Toolbar />}</Link>
-
+                    <li className="menu-item svg-wrapper bounce-in-top" >        
+                        <Link to={`/Components/ToDo/${ThemeContext.Consumer.arguments}`}><SvgToDo /><span>ToDo</span>{<Toolbar />}</Link>
                     </li>
                 </ul>
-
 
         </div>
     ); //return
